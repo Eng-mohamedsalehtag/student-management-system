@@ -1,1 +1,10 @@
-<p>students works!</p>
+<div class="container mt-4">
+  <h2 class="mb-4 text-center">Students List</h2>
+
+  <!-- Student Table -->
+  <app-student-table
+    *ngIf="students$ | async as students"
+    [students]="students"
+    (deleteStudent)="onDeleteStudent($event)"
+  ></app-student-table>
+</div>

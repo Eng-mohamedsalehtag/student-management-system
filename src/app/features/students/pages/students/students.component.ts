@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { StudentsService } from 'src/app/core/services/students.service';
 
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
-  styleUrls: ['./students.component.css']
+  styleUrls: ['./students.component.css'],
 })
-export class StudentsComponent {
+export class StudentsComponent implements OnInit {
+  students$!: Observable<any[]>;
 
+  constructor(private studentService: StudentsService) {}
+
+  ngOnInit(): void {
+    this.students$ = this.studentService.getStudents();
+  }
+
+  // 👇 يستقبل delete من child
+  onDeleteStudent(id: number) {
+    this.studentService.deleteStudent(id);
+  }
 }

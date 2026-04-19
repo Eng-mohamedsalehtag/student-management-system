@@ -10,13 +10,6 @@
     />
   </div>
 
-  <div class="d-flex justify-content-end mb-3">
-    <button class="btn btn-primary" routerLink="/add-student">
-      <i class="fa-solid fa-plus me-2"></i>
-      Add New Student
-    </button>
-  </div>
-
   <!-- Student Table -->
   <app-student-table
     *ngIf="students$ | async as students"
@@ -24,4 +17,10 @@
     [searchText]="searchControl.value || ''"
     (deleteStudent)="onDeleteStudent($event)"
   ></app-student-table>
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-primary" routerLink="/add-student">
+      <i class="fa-solid fa-plus me-2"></i>
+      Add New Student
+    </button>
+  </div>
 </div>

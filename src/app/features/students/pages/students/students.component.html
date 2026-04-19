@@ -1,10 +1,10 @@
 <div class="container mt-4">
   <h2 class="mb-4 text-center">Students List</h2>
 
-  <div class="mb-3">
+  <div class="d-flex justify-content-end mb-3">
     <input
       type="text"
-      class="form-control"
+      class="form-control w-25"
       placeholder="Search by name, or department"
       [formControl]="searchControl"
     />
@@ -17,7 +17,7 @@
     [searchText]="searchControl.value || ''"
     (deleteStudent)="onDeleteStudent($event)"
   ></app-student-table>
-  <div class="d-flex justify-content-end mb-3">
+  <div class="d-flex justify-content-start mb-3">
     <button class="btn btn-primary" routerLink="/add-student">
       <i class="fa-solid fa-plus me-2"></i>
       Add New Student

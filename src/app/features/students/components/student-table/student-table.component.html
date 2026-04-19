@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let student of students">
+    <tr *ngFor="let student of filterStudents()">
       <td>{{ student.id }}</td>
       <td>{{ student.firstName }} {{ student.lastName }}</td>
       <td>{{ student.age }}</td>
@@ -28,7 +28,7 @@
         </button>
       </td>
     </tr>
-    <tr *ngIf="students.length === 0">
+    <tr *ngIf="filterStudents().length === 0">
       <td colspan="6">No Students Found</td>
     </tr>
   </tbody>

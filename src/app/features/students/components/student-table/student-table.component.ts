@@ -8,10 +8,24 @@ import { Router } from '@angular/router';
 })
 export class StudentTableComponent {
   @Input() students: any[] = [];
-
+  @Input() searchText: string = '';
   @Output() deleteStudent = new EventEmitter<number>();
 
   constructor(private router: Router) {}
+
+  // 🔹 search
+  filterStudents() {
+    if (!this.searchText) {
+      return this.students;
+    }
+    const lowerSearch = this.searchText.toLowerCase();
+    return this.students.filter(
+      (student) =>
+        student.firstName.toLowerCase().includes(lowerSearch) ||
+        student.lastName.toLowerCase().includes(lowerSearch) ||
+        student.department.toLowerCase().includes(lowerSearch),
+    );
+  }
 
   // 🔹 delete
   onDelete(id: number) {

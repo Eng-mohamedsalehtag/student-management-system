@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StudentsService } from 'src/app/core/services/students.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-students',
@@ -9,6 +10,7 @@ import { StudentsService } from 'src/app/core/services/students.service';
 })
 export class StudentsComponent implements OnInit {
   students$!: Observable<any[]>;
+  searchControl = new FormControl('');
 
   constructor(private studentService: StudentsService) {}
 
